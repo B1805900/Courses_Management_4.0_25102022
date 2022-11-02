@@ -90,7 +90,7 @@
             <!-- course -->
             <div class="mix col-lg-3 col-md-4 col-sm-6 filter{{$course->hasCategory->id}}">
                 <div class="course-item">
-                    <div class="course-thumb set-bg"   data-setbg="{{asset('images/categories')}}/{{$course->image}}">
+                    <div class="course-thumb set-bg"  style="display:inline-block;width:100%" data-setbg="{{asset('images/courses')}}/{{$course->image}}">
                         {{-- <a href="{{route('showSingleCourse',['idCourse' => $course->id])}}"></a> --}}
                         <div class="row d-flex justify-content-around">
 
@@ -121,7 +121,7 @@
                                   <div style="padding: 13px">120 Students</div>
                                   <form action="{{route('pay')}}" method="POST">
                                     @csrf
-                                    <input type="hidden" name="idCourse">
+                                    <input type="hidden" name="idCourse" value="{{$course->id}}">
                                     <input type="hidden" name="amount" value="{{number_format((float)preg_replace('/[^0-9]/','',$course->price)/24855,2,'.','')}}">
                                     <button type="submit" style="border:none;background: #d82a4e;padding: 13px 19px;color: #fff;font-size: 14px;">Mua với PAYPAL <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
 
